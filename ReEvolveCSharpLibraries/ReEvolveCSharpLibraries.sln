@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTester", "LibraryTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReEvolveCSharpLibrary", "src\ReEvolveCSharpLibrary\ReEvolveCSharpLibrary.csproj", "{4966EEC7-F8C1-4F54-8D9D-82CCE8CCC059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReEvolverCRMLibrary", "src\ReEvolverCRMLibrary\ReEvolverCRMLibrary.csproj", "{F3C8512C-09D5-4666-8593-E016BA767933}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReEvolveCRMLibrary", "src\ReEvolverCRMLibrary\ReEvolveCRMLibrary.csproj", "{F3C8512C-09D5-4666-8593-E016BA767933}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
