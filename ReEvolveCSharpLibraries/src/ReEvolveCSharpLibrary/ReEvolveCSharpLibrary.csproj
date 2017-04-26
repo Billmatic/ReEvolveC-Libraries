@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Entities\Node.cs" />
+    <Compile Include="Extensions\DropDownListExtensions.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\ViewStateExtensions.cs" />
+    <Compile Include="Helpers\XMLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
