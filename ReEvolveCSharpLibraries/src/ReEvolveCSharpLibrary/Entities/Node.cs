@@ -26,7 +26,6 @@ namespace ReEvolveCSharpLibrary.Entities
             {
                 n = n.next;
             }
-
             n.next = tail;
         }
 

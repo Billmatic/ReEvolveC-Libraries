@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xrm.Sdk;
 using ReEvolveCSharpLibrary.Extensions;
+using ReEvolverCRMLibrary.Helpers;
+using Microsoft.Xrm.Sdk.Query;
+using ReEvolverCRMLibrary.Extensions;
 
 namespace LibraryTester
 {
@@ -11,8 +15,15 @@ namespace LibraryTester
     {
         static void Main(string[] args)
         {
-            List<string> list = new List<string>{ "1","dds", "b", "g","er","dffs", "1","2","dds"};
-            List<string> sortedList = list.RemoveDuplicateItems();         
+            CRMConnectionHelper crmConnectionHelper = new CRMConnectionHelper();
+
+            IOrganizationService _service = crmConnectionHelper.GetCRMConnection("https://factor.api.crm.dynamics.com/XRMServices/2011/Organization.svc", "ideacateam@factor.ca","ideaca4me!");
+
+            QueryExpression selectAllApplicationComponents = new QueryExpression() { EntityName= "factor_applicationcomponent", ColumnSet = new ColumnSet(true)};
+            EntityCollection collection = _service.RetrieveMultiple(selectAllApplicationComponents);
+            EntityCollection collectionAll = _service.RetrieveMultipleAll(selectAllApplicationComponents);
+
+
         }
     }
 }

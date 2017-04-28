@@ -7,8 +7,8 @@
     <ProjectGuid>{F3C8512C-09D5-4666-8593-E016BA767933}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReEvolverCRMLibrary</RootNamespace>
-    <AssemblyName>ReEvolverCRMLibrary</AssemblyName>
+    <RootNamespace>ReEvolveCRMLibrary</RootNamespace>
+    <AssemblyName>ReEvolveCRMLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,12 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\IOrganizationServceExtension.cs" />
     <Compile Include="Helpers\CRMConnectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="JavaScript\SDK.REST.js" />
   </ItemGroup>

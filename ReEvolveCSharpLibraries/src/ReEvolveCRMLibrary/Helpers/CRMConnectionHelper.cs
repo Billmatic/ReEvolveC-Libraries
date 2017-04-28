@@ -3,7 +3,7 @@ using System.ServiceModel.Description;
 using Microsoft.Xrm.Sdk.Client;
 using Microsoft.Xrm.Sdk;
 
-namespace ReEvolverCRMLibrary.Helpers
+namespace ReEvolveCRMLibrary.Helpers
 {
     public class CRMConnectionHelper
     {
