@@ -37,11 +37,12 @@
     <Reference Include="Microsoft.Xrm.Sdk">
       <HintPath>..\..\..\..\Program Files\Microsoft SDKs\CRM\CRM 2016 SDK\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
     </Reference>
+    <Reference Include="ReEvolveCRMLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\src\ReEvolveCRMLibrary\bin\Debug\ReEvolveCRMLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="ReEvolveCSharpLibrary">
       <HintPath>..\src\ReEvolveCSharpLibrary\bin\Debug\ReEvolveCSharpLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="ReEvolverCRMLibrary">
-      <HintPath>..\src\ReEvolverCRMLibrary\bin\Debug\ReEvolverCRMLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
