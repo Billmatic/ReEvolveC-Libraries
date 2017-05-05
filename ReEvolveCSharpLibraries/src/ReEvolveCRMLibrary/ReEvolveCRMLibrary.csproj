@@ -49,7 +49,10 @@
     <Compile Include="Helpers\CRMConnectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="JavaScript\ReEvolveCRMForm.js" />
+    <Content Include="JavaScript\SDK.REST.js" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

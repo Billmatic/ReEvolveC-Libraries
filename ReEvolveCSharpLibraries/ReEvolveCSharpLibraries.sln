@@ -13,6 +13,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LibraryTester", "LibraryTester", "{5D75B246-BAD8-4C0A-9AE5-C635BB4E5676}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTester", "LibraryTester\LibraryTester.csproj", "{311FE497-5EA9-448E-90F8-075B9BB2C11A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{41C8DC14-0925-4798-83F9-50FFFA1E025B} = {41C8DC14-0925-4798-83F9-50FFFA1E025B}
+		{4966EEC7-F8C1-4F54-8D9D-82CCE8CCC059} = {4966EEC7-F8C1-4F54-8D9D-82CCE8CCC059}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReEvolveCSharpLibrary", "src\ReEvolveCSharpLibrary\ReEvolveCSharpLibrary.csproj", "{4966EEC7-F8C1-4F54-8D9D-82CCE8CCC059}"
 EndProject
