@@ -4,15 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4966EEC7-F8C1-4F54-8D9D-82CCE8CCC059}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{2242999D-DCC8-49B0-8484-60A5E5353747}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReEvolveCSharpLibrary</RootNamespace>
-    <AssemblyName>ReEvolveCSharpLibrary</AssemblyName>
+    <RootNamespace>ReEvolvePluginTester</RootNamespace>
+    <AssemblyName>ReEvolvePluginTester</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,40 +34,54 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xrm.Sdk">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft SDKs\CRM\CRMSDK2016\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Containers\ConnectionInfo.cs" />
-    <Compile Include="Containers\EntityBase.cs" />
-    <Compile Include="Containers\PagedResults.cs" />
-    <Compile Include="Converters\DataConverter.cs" />
-    <Compile Include="ErrorHandling\ExponentialBackoff.cs" />
-    <Compile Include="ErrorHandling\FixedInterval.cs" />
-    <Compile Include="ErrorHandling\Incremental.cs" />
-    <Compile Include="ErrorHandling\ITransientErrorDetectionStrategy.cs" />
-    <Compile Include="ErrorHandling\RetryingEventArgs.cs" />
-    <Compile Include="ErrorHandling\RetryLimitExceededException.cs" />
-    <Compile Include="ErrorHandling\RetryPolicy.cs" />
-    <Compile Include="ErrorHandling\RetryPolicy.Generic.cs" />
-    <Compile Include="ErrorHandling\RetryStrategy.cs" />
-    <Compile Include="ErrorHandling\SqlAzureTransientErrorDetectionStrategy.cs" />
-    <Compile Include="Extensions\SqlCommandExtensions.cs" />
-    <Compile Include="Extensions\SqlConnectionExtensions.cs" />
-    <Compile Include="ErrorHandling\ThrottledResourceType.cs" />
-    <Compile Include="Extensions\DropDownListExtensions.cs" />
-    <Compile Include="Extensions\ListExtensions.cs" />
-    <Compile Include="Extensions\ViewStateExtensions.cs" />
-    <Compile Include="Helpers\XMLHelper.cs" />
+    <Compile Include="CRMServerConfig.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

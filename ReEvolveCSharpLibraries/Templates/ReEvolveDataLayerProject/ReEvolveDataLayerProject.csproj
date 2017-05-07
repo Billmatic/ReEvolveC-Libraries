@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4966EEC7-F8C1-4F54-8D9D-82CCE8CCC059}</ProjectGuid>
+    <ProjectGuid>{757F34D6-83C6-40CB-A6AE-3B09A1FFD289}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReEvolveCSharpLibrary</RootNamespace>
-    <AssemblyName>ReEvolveCSharpLibrary</AssemblyName>
+    <RootNamespace>ReEvolveDataLayerProject</RootNamespace>
+    <AssemblyName>ReEvolveDataLayerProject</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,10 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ReEvolveCSharpLibrary">
+      <HintPath>..\..\src\ReEvolveCSharpLibrary\bin\Release\ReEvolveCSharpLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,27 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Containers\ConnectionInfo.cs" />
-    <Compile Include="Containers\EntityBase.cs" />
-    <Compile Include="Containers\PagedResults.cs" />
-    <Compile Include="Converters\DataConverter.cs" />
-    <Compile Include="ErrorHandling\ExponentialBackoff.cs" />
-    <Compile Include="ErrorHandling\FixedInterval.cs" />
-    <Compile Include="ErrorHandling\Incremental.cs" />
-    <Compile Include="ErrorHandling\ITransientErrorDetectionStrategy.cs" />
-    <Compile Include="ErrorHandling\RetryingEventArgs.cs" />
-    <Compile Include="ErrorHandling\RetryLimitExceededException.cs" />
-    <Compile Include="ErrorHandling\RetryPolicy.cs" />
-    <Compile Include="ErrorHandling\RetryPolicy.Generic.cs" />
-    <Compile Include="ErrorHandling\RetryStrategy.cs" />
-    <Compile Include="ErrorHandling\SqlAzureTransientErrorDetectionStrategy.cs" />
-    <Compile Include="Extensions\SqlCommandExtensions.cs" />
-    <Compile Include="Extensions\SqlConnectionExtensions.cs" />
-    <Compile Include="ErrorHandling\ThrottledResourceType.cs" />
-    <Compile Include="Extensions\DropDownListExtensions.cs" />
-    <Compile Include="Extensions\ListExtensions.cs" />
-    <Compile Include="Extensions\ViewStateExtensions.cs" />
-    <Compile Include="Helpers\XMLHelper.cs" />
+    <Compile Include="Common\DataBase.cs" />
+    <Compile Include="Common\DataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
