@@ -62,8 +62,10 @@
     <Compile Include="ErrorHandling\ThrottledResourceType.cs" />
     <Compile Include="Extensions\DropDownListExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\SqlReaderExtensions.cs" />
     <Compile Include="Extensions\ViewStateExtensions.cs" />
     <Compile Include="Helpers\ConnectionHelper.cs" />
+    <Compile Include="Helpers\SQLDatabaseHelper.cs" />
     <Compile Include="Helpers\XMLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
