@@ -8,7 +8,7 @@ using ReEvolveCSharpLibrary.Extensions;
 using ReEvolveCRMLibrary.Extensions;
 using ReEvolveCRMLibrary.Helpers;
 using Microsoft.Xrm.Sdk.Query;
-
+using ReEvolveCSharpLibrary.DataStructures;
 
 namespace LibraryTester
 {
@@ -16,12 +16,23 @@ namespace LibraryTester
     {
         static void Main(string[] args)
         {
-            int i = 0;
-            CRMConnectionHelper crmConnectionHelper = new CRMConnectionHelper();
-            IOrganizationService _service = crmConnectionHelper.GetCRMConnection("https://factor.api.crm.dynamics.com/XRMServices/2011/Organization.svc", "ideacateam@factor.ca", "ideaca4me!");
-            QueryExpression selectAllApplicationComponents = new QueryExpression() { EntityName = "factor_applicationcomponent", ColumnSet = new ColumnSet(true) };
-            EntityCollection collection = _service.RetrieveMultiple(selectAllApplicationComponents);
-            EntityCollection collectionAll = _service.RetrieveMultipleAll(selectAllApplicationComponents);
+            //342, 206, 444, 523, 607, 301, 142, 183, 102, 157, 149
+            BinaryTree<int> tree = new BinaryTree<int>(342);
+
+            tree.Insert(206);
+            tree.Insert(444);
+            tree.Insert(523);
+            tree.Insert(607);
+            tree.Insert(301);
+            tree.Insert(142);
+            tree.Insert(183);
+            tree.Insert(102);
+            tree.Insert(157);
+            tree.Insert(149);
+
+
+            tree.BreathFirstTraversal();
+
         }
     }
 }

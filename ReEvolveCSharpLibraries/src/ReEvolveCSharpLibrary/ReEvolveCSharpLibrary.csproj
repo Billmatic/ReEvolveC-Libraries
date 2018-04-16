@@ -47,6 +47,7 @@
     <Compile Include="Containers\EntityBase.cs" />
     <Compile Include="Containers\PagedResults.cs" />
     <Compile Include="Converters\DataConverter.cs" />
+    <Compile Include="DataStructures\BinaryTree.cs" />
     <Compile Include="ErrorHandling\ExponentialBackoff.cs" />
     <Compile Include="ErrorHandling\FixedInterval.cs" />
     <Compile Include="ErrorHandling\Incremental.cs" />
