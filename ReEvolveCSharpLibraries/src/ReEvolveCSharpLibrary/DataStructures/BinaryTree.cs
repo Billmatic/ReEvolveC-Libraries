@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReEvolveCSharpLibrary.DataStructures
 {
@@ -253,6 +250,8 @@ namespace ReEvolveCSharpLibrary.DataStructures
 
         public bool Search(TreeNode<T> node, T searchData)
         {
+            TreeNode<T> searchNode = new TreeNode<T>(searchData);
+
             if(node == null )
             {
                 return false;
@@ -260,17 +259,30 @@ namespace ReEvolveCSharpLibrary.DataStructures
 
             int compareValue = Comparer<T>.Default.Compare(node.data, searchData);
 
-            switch (compareValue)
+            if (node == searchNode)
             {
-                case 0:
-                    return true;
-                case 1:
-                    return Search(node.leftNode, searchData);
-                case -1:
-                    return Search(node.rightNode, searchData);
-            };
+                return true;
+            }
+            else if (node < searchNode)
+            {
+                return Search(node.leftNode, searchData);
+            }
+            else
+            {
+                return Search(node.rightNode, searchData);
+            }
 
-            return false;
+            //switch (compareValue)
+            //{
+            //    case 0:
+            //        return true;
+            //    case 1:
+            //        return Search(node.leftNode, searchData);
+            //    case -1:
+            //        return Search(node.rightNode, searchData);
+            //};
+
+            //return false;
         }
 
         public void Remove(T key)
@@ -347,12 +359,17 @@ namespace ReEvolveCSharpLibrary.DataStructures
 
         public void BreathFirstTraversal()
         {
-            // breadth-first using a queue
+            // breadth-first Traversal
             Queue<TreeNode<T>> q = new Queue<TreeNode<T>>();
+
+            //Add the root in the queue
             q.Enqueue(this.root);
 
+            //Dequeue the top and then add its childern.
+            //until the queue is empty.
             while (q.Count > 0)
             {
+                
                 TreeNode<T> n = q.Dequeue();
                 Console.WriteLine(n.data);
 
@@ -509,7 +526,53 @@ namespace ReEvolveCSharpLibrary.DataStructures
                 return (leftNode == null && rightNode == null);
             }
 
-            
+            public static bool operator ==(TreeNode<T> node1, TreeNode<T> node2)
+            {
+                if (object.ReferenceEquals(node2, null))
+                {
+                    return object.ReferenceEquals(node1, null);
+                }
+
+                return (Comparer<T>.Default.Compare(node1.data, node2.data) == 0);
+            }
+
+            public static bool operator !=(TreeNode<T> node1, TreeNode<T> node2)
+            {
+                if (object.ReferenceEquals(node2, null))
+                {
+                    return !object.ReferenceEquals(node1, null);
+                }
+
+                return (Comparer<T>.Default.Compare(node1.data, node2.data) != 0);
+            }
+
+            public static bool operator <(TreeNode<T> node1, TreeNode<T> node2)
+            {
+
+                return (Comparer<T>.Default.Compare(node1.data, node2.data) < 0);
+
+            }
+
+            public static bool operator >(TreeNode<T> node1, TreeNode<T> node2)
+            {
+
+                return (Comparer<T>.Default.Compare(node1.data, node2.data) > 0);
+
+            }
+
+            public static bool operator <=(TreeNode<T> node1, TreeNode<T> node2)
+            {
+
+                return (Comparer<T>.Default.Compare(node1.data, node2.data) <= 0);
+
+            }
+
+            public static bool operator >=(TreeNode<T> node1, TreeNode<T> node2)
+            {
+
+                return (Comparer<T>.Default.Compare(node1.data, node2.data) >= 0);
+
+            }
 
         }
     }
