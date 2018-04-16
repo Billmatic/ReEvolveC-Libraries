@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{311FE497-5EA9-448E-90F8-075B9BB2C11A}</ProjectGuid>
+    <ProjectGuid>{A18D2678-01A6-4F91-BA72-54A1CEC26EEA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LibraryTester</RootNamespace>
-    <AssemblyName>LibraryTester</AssemblyName>
+    <RootNamespace>ReEvolveDataStructures</RootNamespace>
+    <AssemblyName>ReEvolveDataStructures</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,36 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Crm.Outlook.Sdk, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\IC.Framework.XRM.SDK.CRM.3.0.0\lib\Microsoft.Crm.Outlook.Sdk.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\IC.Framework.XRM.SDK.CRM.3.0.0\lib\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xrm.Client, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\IC.Framework.XRM.SDK.CRM.3.0.0\lib\Microsoft.Xrm.Client.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xrm.Sdk, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\IC.Framework.XRM.SDK.CRM.3.0.0\lib\Microsoft.Xrm.Sdk.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xrm.Sdk.Deployment, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\IC.Framework.XRM.SDK.CRM.3.0.0\lib\Microsoft.Xrm.Sdk.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Xrm.Sdk.Workflow, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\IC.Framework.XRM.SDK.CRM.3.0.0\lib\Microsoft.Xrm.Sdk.Workflow.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ReEvolveCRMLibrary">
-      <HintPath>..\src\ReEvolveCRMLibrary\bin\Debug\ReEvolveCRMLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="ReEvolveCSharpLibrary">
-      <HintPath>..\src\ReEvolveCSharpLibrary\bin\Debug\ReEvolveCSharpLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -79,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
