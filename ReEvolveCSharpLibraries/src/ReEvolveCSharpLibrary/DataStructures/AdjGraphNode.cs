@@ -8,7 +8,7 @@ namespace ReEvolveCSharpLibrary.DataStructures
         public T data { get; set; }
         public List<AdjGraphNode<T>> neighbours { get; set; }
 
-        Guid visitId { get; set; }
+        public Guid visitId { get; set; }
 
         public AdjGraphNode(T newData)
         {
@@ -66,6 +66,26 @@ namespace ReEvolveCSharpLibrary.DataStructures
         {
             Guid visitedId = Guid.NewGuid();
             BreadthFirstTraversal(this, visitedId);
+        }
+
+        public static bool operator ==(AdjGraphNode<T> node1, AdjGraphNode<T> node2)
+        {
+            if (object.ReferenceEquals(node2, null))
+            {
+                return object.ReferenceEquals(node1, null);
+            }
+
+            return (Comparer<T>.Default.Compare(node1.data, node2.data) == 0);
+        }
+
+        public static bool operator !=(AdjGraphNode<T> node1, AdjGraphNode<T> node2)
+        {
+            if (object.ReferenceEquals(node2, null))
+            {
+                return !object.ReferenceEquals(node1, null);
+            }
+
+            return (Comparer<T>.Default.Compare(node1.data, node2.data) != 0);
         }
 
     }

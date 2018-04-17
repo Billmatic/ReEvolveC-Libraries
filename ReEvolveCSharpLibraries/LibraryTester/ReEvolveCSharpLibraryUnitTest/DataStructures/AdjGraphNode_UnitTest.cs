@@ -1,5 +1,6 @@
 ﻿using ReEvolveCSharpLibrary.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace ReEvolveCSharpLibraryUnitTest.DataStructures
 {
@@ -114,6 +115,39 @@ namespace ReEvolveCSharpLibraryUnitTest.DataStructures
             }
 
             Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void PathBetweenABExistTest()
+        {
+            AdjGraphNode<string> node1 = new AdjGraphNode<string>("1");
+            AdjGraphNode<string> node2 = new AdjGraphNode<string>("2");
+            AdjGraphNode<string> node3 = new AdjGraphNode<string>("3");
+            AdjGraphNode<string> node4 = new AdjGraphNode<string>("4");
+            AdjGraphNode<string> node5 = new AdjGraphNode<string>("5");
+            AdjGraphNode<string> node6 = new AdjGraphNode<string>("6");
+
+            node1.neighbours.Add(node2);
+            node2.neighbours.Add(node3);
+            node3.neighbours.Add(node4);
+            node4.neighbours.Add(node2);
+            node4.neighbours.Add(node6);
+            node6.neighbours.Add(node1);
+
+
+            bool result = AdjGraph<string>.PathBetweenABExist(node1, node5, Guid.NewGuid());
+
+            if (result == true)
+            {
+                Assert.Fail();
+            }
+
+            result = AdjGraph<string>.PathBetweenABExist(node1, node4, Guid.NewGuid());
+
+            if (result == false)
+            {
+                Assert.Fail();
+            }
         }
     }
 }

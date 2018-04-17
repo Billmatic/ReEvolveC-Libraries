@@ -89,6 +89,69 @@ namespace ReEvolveCSharpLibrary.DataStructures
             return n;
         }
 
+        public TreeNode<T> CommonAncestor(TreeNode<T> node1, TreeNode<T> node2)
+        {
+            return CommonAncestor(this.root, node1, node2);
+        }
+
+        public TreeNode<T> CommonAncestor(TreeNode<T> current,TreeNode<T> node1, TreeNode<T> node2)
+        {
+            //Serach Left
+            bool isLeft = Search(current.leftNode, node1.data);
+            bool isRight = Search(current.rightNode, node2.data);
+
+            if (isLeft == true)
+            {
+                if (isRight == true)
+                {
+                    return current;
+                }
+                else
+                {
+                    return CommonAncestor(current.leftNode, node1, node2);
+                }
+            }
+            else if(isRight == true)
+            {
+                if (isLeft == true)
+                {
+                    return current;
+                }
+                else
+                {
+                    return CommonAncestor(current.rightNode, node1, node2);
+                }
+            }
+
+            isLeft = Search(current.leftNode, node2.data);
+            isRight = Search(current.rightNode, node1.data);
+
+            if (isLeft == true)
+            {
+                if (isRight == true)
+                {
+                    return current;
+                }
+                else
+                {
+                    return CommonAncestor(current.leftNode, node1, node2);
+                }
+            }
+            else if (isRight == true)
+            {
+                if (isLeft == true)
+                {
+                    return current;
+                }
+                else
+                {
+                    return CommonAncestor(current.rightNode, node1, node2);
+                }
+            }
+
+            return null;
+        }
+
         public TreeNode<T> RotateRight(TreeNode<T> n)
         {
             TreeNode<T> left = n.leftNode;
@@ -263,7 +326,7 @@ namespace ReEvolveCSharpLibrary.DataStructures
             {
                 return true;
             }
-            else if (node < searchNode)
+            else if (searchNode < node)
             {
                 return Search(node.leftNode, searchData);
             }
@@ -272,17 +335,6 @@ namespace ReEvolveCSharpLibrary.DataStructures
                 return Search(node.rightNode, searchData);
             }
 
-            //switch (compareValue)
-            //{
-            //    case 0:
-            //        return true;
-            //    case 1:
-            //        return Search(node.leftNode, searchData);
-            //    case -1:
-            //        return Search(node.rightNode, searchData);
-            //};
-
-            //return false;
         }
 
         public void Remove(T key)
@@ -464,116 +516,6 @@ namespace ReEvolveCSharpLibrary.DataStructures
               
         }
 
-        
-
-
-        public class TreeNode<T>
-        {
-            public T data { get; set; }
-
-            public TreeNode<T> parentNode { get; set; }
-
-            public TreeNode<T> leftNode { get; set; }
-
-            public TreeNode<T> rightNode { get; set; }
-
-            public TreeNode(T newData)
-            {
-                data = newData;
-            }
-
-            public TreeNode(T newData, TreeNode<T> newLeftNode, TreeNode<T>newRightNode)
-            {
-                data = newData;
-                leftNode = newLeftNode;
-                rightNode = newRightNode;
-            }
-
-            public int GetHeight()
-            {
-                var result = 0;
-
-                if (this != null)
-                {
-                    result = Math.Max(GetHeight(this.leftNode), GetHeight(this.rightNode)) + 1;
-                }
-
-                return result;
-            }
-
-            private int GetHeight(TreeNode<T> node)
-            {
-                var result = 0;
-
-                if (node != null)
-                {
-                    result = Math.Max(GetHeight(node.leftNode), GetHeight(node.rightNode)) + 1;
-                }
-
-                return result;
-            }
-
-            public int GetBalance()
-            {
-                int leftHeight = this.leftNode != null ? this.leftNode.GetHeight() : 0;
-                int rightHeight = this.rightNode != null ? this.rightNode.GetHeight() : 0;
-
-                return leftHeight - rightHeight;
-            }
-
-            public bool IsLeaf()
-            {
-                return (leftNode == null && rightNode == null);
-            }
-
-            public static bool operator ==(TreeNode<T> node1, TreeNode<T> node2)
-            {
-                if (object.ReferenceEquals(node2, null))
-                {
-                    return object.ReferenceEquals(node1, null);
-                }
-
-                return (Comparer<T>.Default.Compare(node1.data, node2.data) == 0);
-            }
-
-            public static bool operator !=(TreeNode<T> node1, TreeNode<T> node2)
-            {
-                if (object.ReferenceEquals(node2, null))
-                {
-                    return !object.ReferenceEquals(node1, null);
-                }
-
-                return (Comparer<T>.Default.Compare(node1.data, node2.data) != 0);
-            }
-
-            public static bool operator <(TreeNode<T> node1, TreeNode<T> node2)
-            {
-
-                return (Comparer<T>.Default.Compare(node1.data, node2.data) < 0);
-
-            }
-
-            public static bool operator >(TreeNode<T> node1, TreeNode<T> node2)
-            {
-
-                return (Comparer<T>.Default.Compare(node1.data, node2.data) > 0);
-
-            }
-
-            public static bool operator <=(TreeNode<T> node1, TreeNode<T> node2)
-            {
-
-                return (Comparer<T>.Default.Compare(node1.data, node2.data) <= 0);
-
-            }
-
-            public static bool operator >=(TreeNode<T> node1, TreeNode<T> node2)
-            {
-
-                return (Comparer<T>.Default.Compare(node1.data, node2.data) >= 0);
-
-            }
-
-        }
+       
     }
 }
