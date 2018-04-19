@@ -1,6 +1,7 @@
 ﻿using ReEvolveCSharpLibrary.DataStructures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace ReEvolveCSharpLibraryUnitTest.DataStructures
 {
@@ -60,22 +61,16 @@ namespace ReEvolveCSharpLibraryUnitTest.DataStructures
         [TestMethod()]
         public void DepthFirstTraversalTest()
         {
-            AdjGraphNode<string> node1 = new AdjGraphNode<string>("VP and Ellesemere");
-            AdjGraphNode<string> node2 = new AdjGraphNode<string>("Markham and Ellesemere");
-            AdjGraphNode<string> node3 = new AdjGraphNode<string>("Markam and Eglinton");
-            AdjGraphNode<string> node4 = new AdjGraphNode<string>("VP and Eglington");
-            AdjGraphNode<string> node5 = new AdjGraphNode<string>("VP and Kingston Rd");
-            AdjGraphNode<string> node6 = new AdjGraphNode<string>("Kingston Rd and Eglinton");
+            AdjGraph<string> graph = new AdjGraph<string>("VP and Ellesemere");
+            graph.AppendNodes("VP and Ellesemere", "VP and Eglington");
+            graph.AppendNodes("VP and Ellesemere", "Markham and Ellesemere");
+            graph.AppendNodes("Markham and Ellesemere", "Markam and Eglinton");
+            graph.AppendNodes("VP and Eglington", "Markam and Eglinton");
+            graph.AppendNodes("VP and Eglington", "VP and Kingston Rd");
+            graph.AppendNodes("VP and Kingston Rd", "Kingston Rd and Eglinton");
+            graph.AppendNodes("Kingston Rd and Eglinton", "Markam and Eglinton");
 
-            node1.neighbours.Add(node4);
-            node1.neighbours.Add(node2);
-            node2.neighbours.Add(node3);
-            node4.neighbours.Add(node3);
-            node4.neighbours.Add(node5);
-            node5.neighbours.Add(node6);
-            node6.neighbours.Add(node3);
-
-            node1.DepthFirstTraversal();
+            List<string> list = graph.DepthFirstTraversal();
 
             Assert.Fail();
         }
@@ -83,33 +78,26 @@ namespace ReEvolveCSharpLibraryUnitTest.DataStructures
         [TestMethod()]
         public void BreadthFirstTraversalTest()
         {
-            AdjGraphNode<string> node1 = new AdjGraphNode<string>("VP and Ellesemere");
-            AdjGraphNode<string> node2 = new AdjGraphNode<string>("Markham and Ellesemere");
-            AdjGraphNode<string> node3 = new AdjGraphNode<string>("Markam and Eglinton");
-            AdjGraphNode<string> node4 = new AdjGraphNode<string>("VP and Eglington");
-            AdjGraphNode<string> node5 = new AdjGraphNode<string>("VP and Kingston Rd");
-            AdjGraphNode<string> node6 = new AdjGraphNode<string>("Kingston Rd and Eglinton");
+            AdjGraph<string> graph = new AdjGraph<string>("VP and Ellesemere");
+            graph.AppendNodes("VP and Ellesemere", "VP and Eglington");
+            graph.AppendNodes("VP and Ellesemere", "Markham and Ellesemere");
+            graph.AppendNodes("Markham and Ellesemere", "Markam and Eglinton");
+            graph.AppendNodes("VP and Eglington", "Markam and Eglinton");
+            graph.AppendNodes("VP and Eglington", "VP and Kingston Rd");
+            graph.AppendNodes("VP and Kingston Rd", "Kingston Rd and Eglinton");
+            graph.AppendNodes("Kingston Rd and Eglinton", "Markam and Eglinton");
 
-            node1.neighbours.Add(node4);
-            node1.neighbours.Add(node2);
-            node2.neighbours.Add(node3);
-            node4.neighbours.Add(node3);
-            node4.neighbours.Add(node5);
-            node5.neighbours.Add(node6);
-            node6.neighbours.Add(node3);
-
-            node1.BreadthFirstTraversal();
+            List<string> list = graph.BreadthFirstTraversal();
 
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void AdjGraphNodeTest()
+        public void AdjGraphTest()
         {
-            AdjGraphNode<string> node1 = new AdjGraphNode<string>("VP and Ellesemere");
-            node1.neighbours.Add(node1);
+            AdjGraph<string> graph = new AdjGraph<string>("VP and Ellesemere");
 
-            if (node1.data != null)
+            if (graph.startNode.data != null)
             {
                 return;
             }
@@ -120,29 +108,22 @@ namespace ReEvolveCSharpLibraryUnitTest.DataStructures
         [TestMethod()]
         public void PathBetweenABExistTest()
         {
-            AdjGraphNode<string> node1 = new AdjGraphNode<string>("1");
-            AdjGraphNode<string> node2 = new AdjGraphNode<string>("2");
-            AdjGraphNode<string> node3 = new AdjGraphNode<string>("3");
-            AdjGraphNode<string> node4 = new AdjGraphNode<string>("4");
-            AdjGraphNode<string> node5 = new AdjGraphNode<string>("5");
-            AdjGraphNode<string> node6 = new AdjGraphNode<string>("6");
+            AdjGraph<int> graph = new AdjGraph<int>(1);
+            graph.AppendNodes(1, 2);
+            graph.AppendNodes(2, 3);
+            graph.AppendNodes(3, 4);
+            graph.AppendNodes(4, 2);
+            graph.AppendNodes(4, 6);
+            graph.AppendNodes(6, 1);
 
-            node1.neighbours.Add(node2);
-            node2.neighbours.Add(node3);
-            node3.neighbours.Add(node4);
-            node4.neighbours.Add(node2);
-            node4.neighbours.Add(node6);
-            node6.neighbours.Add(node1);
-
-
-            bool result = AdjGraph<string>.PathBetweenABExist(node1, node5, Guid.NewGuid());
+            bool result = graph.PathBetweenABExist(1, 5);
 
             if (result == true)
             {
                 Assert.Fail();
             }
 
-            result = AdjGraph<string>.PathBetweenABExist(node1, node4, Guid.NewGuid());
+            result = graph.PathBetweenABExist(1, 2, Guid.NewGuid());
 
             if (result == false)
             {

@@ -48,9 +48,7 @@
     <Compile Include="Containers\PagedResults.cs" />
     <Compile Include="Converters\DataConverter.cs" />
     <Compile Include="DataStructures\AdjGraph.cs" />
-    <Compile Include="DataStructures\AdjGraphNode.cs" />
     <Compile Include="DataStructures\BinaryTree.cs" />
-    <Compile Include="DataStructures\TreeNode.cs" />
     <Compile Include="ErrorHandling\ExponentialBackoff.cs" />
     <Compile Include="ErrorHandling\FixedInterval.cs" />
     <Compile Include="ErrorHandling\Incremental.cs" />

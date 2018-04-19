@@ -47,12 +47,11 @@ namespace ReEvolveCSharpLibraryUnitTest.DataStructures
             tree.Insert(157);
             tree.Insert(149);
 
-            TreeNode<int> node = new TreeNode<int>(444);
-            TreeNode<int> node2 = new TreeNode<int>(607);
-            tree.BreathFirstTraversal();
-            TreeNode<int> ancestor = tree.CommonAncestor(node, node2);
 
-            if (ancestor.data != 523)
+            tree.BreathFirstTraversal();
+            int  ancestor = tree.CommonAncestor(444,607);
+
+            if (ancestor != 523)
             {
                 Assert.Fail();
             }
